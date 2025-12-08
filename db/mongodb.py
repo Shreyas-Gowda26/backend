@@ -11,10 +11,10 @@ DATABASE_NAME = os.getenv("DATABASE_NAME","chat_app")
 client = None
 db = None
 
-async def connet_to_mongo():
+async def connect_to_mongo():
     global client , db
     client = AsyncIOMotorClient(MONGODB_URI)
-    db = client(DATABASE_NAME)
+    db = client[DATABASE_NAME]
     print("🚀 Connected to MongoDB")
 
 async def close_mongo_connection():
